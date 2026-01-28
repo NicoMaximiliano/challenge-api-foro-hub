@@ -1,0 +1,1 @@
+ALTER TABLE topicos ADD CONSTRAINT fk_topicos_cursos FOREIGN KEY (curso_id) REFERENCES cursos(id);
