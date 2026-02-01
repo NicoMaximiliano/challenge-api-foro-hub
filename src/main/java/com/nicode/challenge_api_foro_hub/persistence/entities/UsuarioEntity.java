@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -23,4 +25,7 @@ public class UsuarioEntity {
     private String email;
 
     private String contrasenia;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+    private List<TopicoEntity> topicos;
 }

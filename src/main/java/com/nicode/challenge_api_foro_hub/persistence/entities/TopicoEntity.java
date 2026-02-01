@@ -23,5 +23,13 @@ public class TopicoEntity {
     private String mensaje;
 
     @Column(name = "status")
-    private String estatus;
+    private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private UsuarioEntity usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private CursoEntity curso;
 }

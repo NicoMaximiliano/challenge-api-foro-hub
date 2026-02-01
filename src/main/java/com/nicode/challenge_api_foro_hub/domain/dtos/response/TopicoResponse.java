@@ -4,7 +4,7 @@ public record TopicoResponse(
         String titulo,
         String mensaje,
         String fechaCreacion,
-        String estado,
+        Boolean estado,
         String nombreAutor,
         String cursoNombre
 ) {
