@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -22,6 +24,8 @@ public class TopicoEntity {
 
     private String mensaje;
 
+    private LocalDateTime fechaCreacion;
+
     @Column(name = "status")
     private Boolean estado;
 
@@ -32,4 +36,13 @@ public class TopicoEntity {
     @ManyToOne
     @JoinColumn(name = "curso_id")
     private CursoEntity curso;
+
+    public TopicoEntity(String titulo, String mensaje, LocalDateTime fechaCreacion, Boolean estado, UsuarioEntity usuario, CursoEntity curso) {
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.fechaCreacion = fechaCreacion;
+        this.estado = estado;
+        this.usuario = usuario;
+        this.curso = curso;
+    }
 }

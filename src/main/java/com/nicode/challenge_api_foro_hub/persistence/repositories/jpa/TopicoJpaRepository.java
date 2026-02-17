@@ -4,4 +4,11 @@ import com.nicode.challenge_api_foro_hub.persistence.entities.TopicoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TopicoJpaRepository extends JpaRepository<TopicoEntity, Long> {
+
+    boolean existsById(Long id);
+
+    boolean existsByMensajeEqualsIgnoreCase(String mensaje);
+
+    boolean existsByTituloEqualsIgnoreCase(String titulo);
+
 }

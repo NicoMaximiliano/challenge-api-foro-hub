@@ -28,4 +28,16 @@ public class UsuarioEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private List<TopicoEntity> topicos;
+
+    public UsuarioEntity (Long id, String nombre, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+    }
+
+    public UsuarioEntity (String nombre, String email, String contrasenia) {
+        this.nombre = nombre;
+        this.email = email;
+        this.contrasenia = contrasenia;
+    }
 }

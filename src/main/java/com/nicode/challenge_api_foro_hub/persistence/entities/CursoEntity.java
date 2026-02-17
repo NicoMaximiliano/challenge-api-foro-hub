@@ -26,4 +26,10 @@ public class CursoEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "curso")
     private List<TopicoEntity> topicos;
+
+    public CursoEntity (Long id, String nombre, String categoria) {
+        this.id = id;
+        this.nombre = nombre;
+        this.categoria = categoria;
+    }
 }
