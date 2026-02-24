@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CursoDtoRequest {
+public class CursoRequestDto {
 
     @NotNull(message = "El campo id no puede ser nulo")
     //@Positive(message = "El campo id debe ser un número positivo")

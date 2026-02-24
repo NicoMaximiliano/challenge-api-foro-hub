@@ -4,6 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +30,6 @@ public class JwtUtil {
 
     //CREAR EL JWT TOKEN
     public String createToken(Authentication authentication){
-
         //CREANDO OBJETO DE ALGORITMO DE ENCRIPTACION
         Algorithm algorithm = Algorithm.HMAC256(this.privateKey);
 
@@ -65,22 +66,26 @@ public class JwtUtil {
             //VALIDARA Y DEVOLVERA EL TOKEN DECODIFICADO
             return verifier.verify(token);
 
-        }catch (JWTVerificationException exception){
-            throw new JWTVerificationException("Token invalido, no autorizado");
+        } catch (TokenExpiredException e) {
+            throw new RuntimeException("El token ha expirado el: " + e.getExpiredOn());
+        } catch (SignatureVerificationException e) {
+            throw new RuntimeException("La firma del token no es válida");
+        } catch (JWTVerificationException e) {
+            throw new RuntimeException("Error al verificar el token");
         }
     }
 
-    //EXTRAER EL USUARIO DEL JWT TOKEN DECODIFICADO
+    //EXTRAER EL USERNAME DEL TOKEN DECODIFICADO
     public String extractUser(DecodedJWT decodedJWT){
         return decodedJWT.getSubject();
     }
 
-    //EXTRAER UN CLAIM ESPECIFICO DEL JWT TOKEN DECODIFICADO
+    //EXTRAER UN CLAIM ESPECIFICO DEL TOKEN DECODIFICADO
     public Claim getSpecificClaim(DecodedJWT decodedJWT, String claimName){
         return decodedJWT.getClaim(claimName);
     }
 
-    //EXTRAER TODOS LOS CLAIMS DEL JWT TOKEN DECODIFICADO
+    //EXTRAER TODOS LOS CLAIMS DEL TOKEN DECODIFICADO
     public Map<String, Claim> getAllClaims(DecodedJWT decodedJWT){
         return decodedJWT.getClaims();
     }

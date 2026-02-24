@@ -1,7 +1,7 @@
 package com.nicode.challenge_api_foro_hub.util.converters.impl;
 
-import com.nicode.challenge_api_foro_hub.domain.dtos.response.topico.TopicoDtoResponse;
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.topico.TopicoDtoRequest;
+import com.nicode.challenge_api_foro_hub.domain.dtos.response.topico.TopicoResponseDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.topico.TopicoRequestDto;
 import com.nicode.challenge_api_foro_hub.persistence.entities.TopicoEntity;
 import com.nicode.challenge_api_foro_hub.util.converters.CursoConverter;
 import com.nicode.challenge_api_foro_hub.util.converters.TopicoConverter;
@@ -20,8 +20,8 @@ public class TopicoConverterImpl implements TopicoConverter {
     private final UsuarioConverter usuarioConverter;
 
     @Override
-    public TopicoDtoResponse toTopicoDto(TopicoEntity topicoEntity) {
-        return new TopicoDtoResponse(
+    public TopicoResponseDto toTopicoDto(TopicoEntity topicoEntity) {
+        return new TopicoResponseDto(
                 topicoEntity.getTitulo(),
                 topicoEntity.getMensaje(),
                 topicoEntity.getFechaCreacion().toString(),
@@ -32,24 +32,14 @@ public class TopicoConverterImpl implements TopicoConverter {
     }
 
     @Override
-    public List<TopicoDtoResponse> toTopicoDtoList(List<TopicoEntity> topicoEntities) {
+    public List<TopicoResponseDto> toTopicoDtoList(List<TopicoEntity> topicoEntities) {
         return topicoEntities.stream()
                 .map(this::toTopicoDto)
                 .toList();
     }
 
     @Override
-    public TopicoEntity toTopicoEntity(TopicoDtoRequest topico) {
-        //TopicoEntity topicoEntity = new TopicoEntity();
-        //LocalDateTime fechaCreacion = LocalDateTime.now();
-
-//        topicoEntity.setTitulo(topico.getTitulo());
-//        topicoEntity.setMensaje(topico.getMensaje());
-//        topicoEntity.setEstado(true);
-//        topicoEntity.setFechaCreacion(fechaCreacion);
-//        topicoEntity.setUsuario(usuarioConverter.toUsuarioEntity(topico.getUsuario()));
-//        topicoEntity.setCurso(cursoConverter.toCursoEntity(topico.getCurso()));
-
+    public TopicoEntity toTopicoEntity(TopicoRequestDto topico) {
         return new TopicoEntity(
                 topico.getTitulo(),
                 topico.getMensaje(),
@@ -58,7 +48,6 @@ public class TopicoConverterImpl implements TopicoConverter {
                 usuarioConverter.toUsuarioEntity(topico.getUsuario()),
                 cursoConverter.toCursoEntity(topico.getCurso())
         );
-
-        //return topicoEntity;
     }
+
 }

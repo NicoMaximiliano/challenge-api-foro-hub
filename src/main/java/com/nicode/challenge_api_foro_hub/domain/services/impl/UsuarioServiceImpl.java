@@ -1,12 +1,12 @@
 package com.nicode.challenge_api_foro_hub.domain.services.impl;
 
-import com.nicode.challenge_api_foro_hub.configuration.exceptions.ContraseñaInvalidException;
+import com.nicode.challenge_api_foro_hub.configuration.exceptions.ContraseniaInvalidException;
 import com.nicode.challenge_api_foro_hub.configuration.exceptions.NombreUsuarioInvalidException;
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioDtoAuthRequest;
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioDtoLoginRequest;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioAuthRequestDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioLoginRequestDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.response.ResponseDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario.UsuarioDto;
 import com.nicode.challenge_api_foro_hub.persistence.repositories.UsuarioRepository;
-import com.nicode.challenge_api_foro_hub.persistence.repositories.jpa.UsuarioJpaRepository;
 import com.nicode.challenge_api_foro_hub.util.JwtUtil;
 import com.nicode.challenge_api_foro_hub.util.PasswordUtil;
 import lombok.RequiredArgsConstructor;
@@ -33,14 +33,9 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     private final PasswordUtil passwordUtil;
 
-    private final UsuarioJpaRepository usuarioJpaRepository;
 
-
-    public List<String> createUser(UsuarioDtoAuthRequest authRequest) {
-        List<String> response = new ArrayList<>();
-
+    public ResponseDto createUser(UsuarioAuthRequestDto authRequest) {
         usuarioRepository.saveUsuario(authRequest);
-
         UsuarioDto usuarioDto = usuarioRepository.getUsuarioByNombre(authRequest.getNombre());
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -50,14 +45,10 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
         String token = jwtUtil.createToken(authentication);
 
-        response.add("Usuario creado exitosamente");
-        response.add(token);
-
-        return response;
+        return new ResponseDto(201, "Exito","Usuario creado exitosamente", token);
     }
 
-    public List<String> login(UsuarioDtoLoginRequest loginRequest) {
-        List<String> response = new ArrayList<>();
+    public ResponseDto login(UsuarioLoginRequestDto loginRequest) {
         String nombre = loginRequest.getNombre();
         String password = loginRequest.getContrasenia();
 
@@ -67,10 +58,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
         String token = jwtUtil.createToken(authentication);
 
-        response.add("Login exitoso");
-        response.add(token);
-
-        return response;
+        return new ResponseDto(200, "Exito","Login exitoso", token);
     }
 
     public Authentication authenticate(String nombre, String contrasenia) {
@@ -81,14 +69,14 @@ public class UsuarioServiceImpl implements UserDetailsService {
             return new UsernamePasswordAuthenticationToken(nombre, userDetails.getPassword(), userDetails.getAuthorities());
         }
         else{
-            throw new ContraseñaInvalidException("Acceso no autorizado, contraseña incorrecta");
+            throw new ContraseniaInvalidException("Acceso no autorizado, contraseña incorrecta");
         }
     }
 
     @Override
     public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
 
-        if(usuarioJpaRepository.existsByNombre(nombre)){
+        if(usuarioRepository.existsByNombre(nombre)){
             UsuarioDto usuarioDto = usuarioRepository.getUsuarioByNombre(nombre);
 
             List<SimpleGrantedAuthority> authorities = new ArrayList<>();

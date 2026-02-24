@@ -1,7 +1,7 @@
 package com.nicode.challenge_api_foro_hub.domain.dtos.request.topico;
 
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioDtoRequest;
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.curso.CursoDtoRequest;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioRequestDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.curso.CursoRequestDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TopicoDtoRequest {
+public class TopicoRequestDto {
 
     @NotBlank(message = "El campo titulo no puede estar vacio")
     private String titulo;
@@ -24,9 +24,9 @@ public class TopicoDtoRequest {
 
     @NotNull(message = "El campo usuario no puede ser nulo")
     @Valid
-    private UsuarioDtoRequest usuario;
+    private UsuarioRequestDto usuario;
 
     @NotNull(message = "El campo curso no puede ser nulo")
     @Valid
-    private CursoDtoRequest curso;
+    private CursoRequestDto curso;
 }

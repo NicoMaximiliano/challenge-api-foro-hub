@@ -59,6 +59,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
             //RESETEO EL SECURITY CONTEXT HOLDER
             SecurityContextHolder.setContext(securityContext);
+
         }
 
         filterChain.doFilter(request, response);

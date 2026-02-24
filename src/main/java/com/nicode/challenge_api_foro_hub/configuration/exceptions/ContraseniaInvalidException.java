@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseBody
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
-public class TokenInvalidException extends RuntimeException {
-
-    public TokenInvalidException(String message) {
+public class ContraseniaInvalidException extends RuntimeException {
+    public ContraseniaInvalidException(String message) {
         super(message);
     }
-
 }

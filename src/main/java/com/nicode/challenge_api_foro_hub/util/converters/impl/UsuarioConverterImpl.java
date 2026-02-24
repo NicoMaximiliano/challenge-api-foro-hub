@@ -1,7 +1,7 @@
 package com.nicode.challenge_api_foro_hub.util.converters.impl;
 
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioDtoAuthRequest;
-import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioDtoRequest;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioAuthRequestDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioRequestDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario.UsuarioDto;
 import com.nicode.challenge_api_foro_hub.persistence.entities.UsuarioEntity;
 import com.nicode.challenge_api_foro_hub.util.PasswordUtil;
@@ -24,7 +24,7 @@ public class UsuarioConverterImpl implements UsuarioConverter {
     }
 
     @Override
-    public UsuarioEntity toUsuarioEntity(UsuarioDtoRequest usuario) {
+    public UsuarioEntity toUsuarioEntity(UsuarioRequestDto usuario) {
         return new UsuarioEntity(
                 usuario.getId(),
                 usuario.getNombre(),
@@ -33,7 +33,7 @@ public class UsuarioConverterImpl implements UsuarioConverter {
     }
 
     @Override
-    public UsuarioEntity toUsuarioEntity(UsuarioDtoAuthRequest usuario) {
+    public UsuarioEntity toUsuarioEntity(UsuarioAuthRequestDto usuario) {
         return new UsuarioEntity(
                 usuario.getNombre(),
                 usuario.getEmail(),
