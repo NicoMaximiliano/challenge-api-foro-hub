@@ -1,6 +1,6 @@
 package com.nicode.challenge_api_foro_hub.domain.services.impl;
 
-import com.nicode.challenge_api_foro_hub.configuration.exceptions.TopicoNotFoundException;
+import com.nicode.challenge_api_foro_hub.web.exceptions.TopicoNotFoundException;
 import com.nicode.challenge_api_foro_hub.domain.dtos.response.ResponseDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.response.topico.TopicoResponseDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.topico.TopicoRequestDto;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class TopicoServiceImpl implements TopicoService {
 
     private final TopicoRepository topicoRepository;

@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Component
 @RequiredArgsConstructor
+@Component
 public class TopicoConverterImpl implements TopicoConverter {
 
     private final CursoConverter cursoConverter;

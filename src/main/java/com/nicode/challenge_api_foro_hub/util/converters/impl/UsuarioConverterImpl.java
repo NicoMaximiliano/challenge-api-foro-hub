@@ -2,15 +2,15 @@ package com.nicode.challenge_api_foro_hub.util.converters.impl;
 
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioAuthRequestDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioRequestDto;
-import com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario.UsuarioDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.UsuarioDto;
 import com.nicode.challenge_api_foro_hub.persistence.entities.UsuarioEntity;
 import com.nicode.challenge_api_foro_hub.util.PasswordUtil;
 import com.nicode.challenge_api_foro_hub.util.converters.UsuarioConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
+@Component
 public class UsuarioConverterImpl implements UsuarioConverter {
 
     private final PasswordUtil passwordUtil;

@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 @RequiredArgsConstructor
+@Repository
 public class TopicoRepositoryImpl implements TopicoRepository {
 
     private final TopicoJpaRepository topicoJpaRepository;

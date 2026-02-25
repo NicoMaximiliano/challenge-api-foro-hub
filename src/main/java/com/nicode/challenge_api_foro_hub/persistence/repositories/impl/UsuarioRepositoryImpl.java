@@ -1,7 +1,7 @@
 package com.nicode.challenge_api_foro_hub.persistence.repositories.impl;
 
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioAuthRequestDto;
-import com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario.UsuarioDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.UsuarioDto;
 import com.nicode.challenge_api_foro_hub.persistence.entities.UsuarioEntity;
 import com.nicode.challenge_api_foro_hub.persistence.repositories.UsuarioRepository;
 import com.nicode.challenge_api_foro_hub.persistence.repositories.jpa.UsuarioJpaRepository;
@@ -9,8 +9,8 @@ import com.nicode.challenge_api_foro_hub.util.converters.UsuarioConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-@Repository
 @RequiredArgsConstructor
+@Repository
 public class UsuarioRepositoryImpl implements UsuarioRepository {
 
     private final UsuarioJpaRepository usuarioJpaRepository;

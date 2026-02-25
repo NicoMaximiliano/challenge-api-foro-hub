@@ -2,7 +2,7 @@ package com.nicode.challenge_api_foro_hub.persistence.repositories;
 
 
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioAuthRequestDto;
-import com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario.UsuarioDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.UsuarioDto;
 
 public interface UsuarioRepository {
 

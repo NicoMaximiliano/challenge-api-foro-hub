@@ -1,4 +1,4 @@
-package com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario;
+package com.nicode.challenge_api_foro_hub.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

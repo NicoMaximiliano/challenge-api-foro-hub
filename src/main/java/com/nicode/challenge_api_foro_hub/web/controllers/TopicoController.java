@@ -9,9 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/topicos")
-@RequiredArgsConstructor
 public class TopicoController {
 
     private final TopicoService topicoService;
@@ -19,8 +19,8 @@ public class TopicoController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllTopicos() {
         if (topicoService.getAllTopicos().isEmpty()){
-            ResponseDto response = new ResponseDto(200, "Success" , "No se hay topicos registrados en el sistema");
-            return ResponseEntity.status(response.getCode()).body(response.showResponse());
+            ResponseDto response = new ResponseDto(200, "Exito" , "No se hay topicos registrados en el sistema");
+            return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
         }
         return ResponseEntity.status(200).body(topicoService.getAllTopicos());
     }
@@ -34,21 +34,21 @@ public class TopicoController {
     @Transactional
     public ResponseEntity<?> createTopico(@RequestBody @Valid TopicoRequestDto topico) {
         ResponseDto response = topicoService.saveNewTopico(topico);
-        return ResponseEntity.status(response.getCode()).body(response.showResponse());
+        return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
 
     @PutMapping("/update/{id}")
     @Transactional
     public ResponseEntity<?> updateTopico(@PathVariable Long id, @RequestBody @Valid TopicoRequestDto topico) {
         ResponseDto response = topicoService.updateTopico(id, topico);
-        return ResponseEntity.status(response.getCode()).body(response.showResponse());
+        return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
 
     @DeleteMapping("/delete/{id}")
     @Transactional
     public ResponseEntity<?> deleteTopico(@PathVariable Long id) {
         ResponseDto response = topicoService.deleteTopicoById(id);
-        return ResponseEntity.status(response.getCode()).body(response.showResponse());
+        return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
 
 }

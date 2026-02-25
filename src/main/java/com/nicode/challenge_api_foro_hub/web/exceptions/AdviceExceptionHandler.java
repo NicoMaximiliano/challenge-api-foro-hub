@@ -1,4 +1,4 @@
-package com.nicode.challenge_api_foro_hub.configuration.exceptions;
+package com.nicode.challenge_api_foro_hub.web.exceptions;
 
 import com.nicode.challenge_api_foro_hub.domain.dtos.response.ResponseDto;
 import org.springframework.http.ResponseEntity;

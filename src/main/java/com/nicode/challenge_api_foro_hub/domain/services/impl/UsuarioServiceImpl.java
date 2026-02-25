@@ -1,11 +1,11 @@
 package com.nicode.challenge_api_foro_hub.domain.services.impl;
 
-import com.nicode.challenge_api_foro_hub.configuration.exceptions.ContraseniaInvalidException;
-import com.nicode.challenge_api_foro_hub.configuration.exceptions.NombreUsuarioInvalidException;
+import com.nicode.challenge_api_foro_hub.web.exceptions.ContraseniaInvalidException;
+import com.nicode.challenge_api_foro_hub.web.exceptions.NombreUsuarioInvalidException;
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioAuthRequestDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.request.usuario.UsuarioLoginRequestDto;
 import com.nicode.challenge_api_foro_hub.domain.dtos.response.ResponseDto;
-import com.nicode.challenge_api_foro_hub.domain.dtos.response.usuario.UsuarioDto;
+import com.nicode.challenge_api_foro_hub.domain.dtos.UsuarioDto;
 import com.nicode.challenge_api_foro_hub.persistence.repositories.UsuarioRepository;
 import com.nicode.challenge_api_foro_hub.util.JwtUtil;
 import com.nicode.challenge_api_foro_hub.util.PasswordUtil;

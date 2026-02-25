@@ -34,16 +34,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-                .httpBasic(Customizer.withDefaults())
+                //.httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(http -> {
                     http.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/auth/signup").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/topicos/**").hasAnyRole("USER", "ADMIN");
-                    http.requestMatchers(HttpMethod.POST, "/topicos/create").hasAnyRole("USER", "ADMIN");
-                    http.requestMatchers(HttpMethod.PUT, "/topicos/update/**").hasAnyRole("USER", "ADMIN");
-                    http.requestMatchers(HttpMethod.DELETE, "/topicos/delete/**").hasAnyRole("USER", "ADMIN");
-
+                    http.requestMatchers(HttpMethod.GET, "/topicos/**").hasRole("USER");
+                    http.requestMatchers(HttpMethod.POST, "/topicos/create").hasRole("USER");
+                    http.requestMatchers(HttpMethod.PUT, "/topicos/update/**").hasRole("USER");
+                    http.requestMatchers(HttpMethod.DELETE, "/topicos/delete/**").hasRole("USER");
                     http.anyRequest().denyAll();
                 })
                 .addFilterBefore(jwtFilter, BasicAuthenticationFilter.class)
