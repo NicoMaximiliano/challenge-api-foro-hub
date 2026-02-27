@@ -262,4 +262,4 @@ Response:
 - Agregar paginacion para obtener una cantidad de datos especifica
 
 ## License
-##### ©Nicolas Orellano
+##### © Nicolas Orellano
