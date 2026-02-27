@@ -21,7 +21,6 @@ public class AuthController {
 
     private final UsuarioServiceImpl usuarioService;
 
-
     @PostMapping("/login")
     @Transactional
     public ResponseEntity<?> login(@RequestBody @Valid UsuarioLoginRequestDto userRequest){

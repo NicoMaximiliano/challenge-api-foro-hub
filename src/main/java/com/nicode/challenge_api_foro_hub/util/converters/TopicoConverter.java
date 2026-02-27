@@ -10,6 +10,5 @@ public interface TopicoConverter {
 
     TopicoResponseDto toTopicoDto(TopicoEntity topicoEntity);
     List<TopicoResponseDto> toTopicoDtoList(List<TopicoEntity> topicoEntities);
-
     TopicoEntity toTopicoEntity(TopicoRequestDto topico);
 }

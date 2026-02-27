@@ -13,4 +13,5 @@ public interface TopicoService {
     ResponseDto saveNewTopico(TopicoRequestDto topico);
     ResponseDto updateTopico(Long id, TopicoRequestDto topico);
     ResponseDto deleteTopicoById(Long id);
+
 }

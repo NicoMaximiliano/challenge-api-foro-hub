@@ -12,10 +12,12 @@ import java.util.Map;
 public class ResponseDto {
 
     private Integer codigo;
-    private String status;
-    private Object mensaje;
-    private String token;
 
+    private String status;
+
+    private Object mensaje;
+
+    private String token;
 
     public ResponseDto(Integer codigo, String status, Object mensaje) {
         this.codigo = codigo;

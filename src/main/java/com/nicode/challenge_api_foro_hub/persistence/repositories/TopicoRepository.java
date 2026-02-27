@@ -17,4 +17,5 @@ public interface TopicoRepository {
     boolean existByTituloOrMensaje(TopicoRequestDto topico);
     boolean existCurso(TopicoRequestDto topico);
     boolean existUsuario(TopicoRequestDto topico);
+
 }

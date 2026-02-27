@@ -17,7 +17,6 @@ public class TopicoServiceImpl implements TopicoService {
 
     private final TopicoRepository topicoRepository;
 
-
     @Override
     public List<TopicoResponseDto> getAllTopicos() {
         return topicoRepository.getAllTopicos();
@@ -37,13 +36,13 @@ public class TopicoServiceImpl implements TopicoService {
         if (!topicoRepository.existByTituloOrMensaje(topico)) {
             if(topicoRepository.existCurso(topico) && topicoRepository.existUsuario(topico)){
                 topicoRepository.saveTopico(topico);
-                return new ResponseDto(201, "Exito" , "Tópico creado con éxito");
+                return new ResponseDto(201, "Created" , "Tópico creado con éxito");
             }
             else{
-                return new ResponseDto(400, "Error" , "No se pudo crear el Tópico. Verifica que el curso y usuario existan.");
+                return new ResponseDto(400, "Bad Request" , "No se pudo crear el Tópico. Verifica que el curso y usuario existan.");
             }
         }
-        return new ResponseDto(400, "Error" , "No se pudo crear el Tópico. Verifica que el título o mensaje no existan.");
+        return new ResponseDto(400, "Bad Request" , "No se pudo crear el Tópico. Verifica que el título o mensaje no existan.");
     }
 
     @Override
@@ -52,13 +51,13 @@ public class TopicoServiceImpl implements TopicoService {
             if (!topicoRepository.existByTituloOrMensaje(topico)) {
                 if(topicoRepository.existCurso(topico) && topicoRepository.existUsuario(topico)){
                     topicoRepository.updateTopicoById(id, topico);
-                    return new ResponseDto(200, "Exito" , "Tópico actualizado con éxito");
+                    return new ResponseDto(200, "Ok" , "Tópico actualizado con éxito");
                 }
                 else{
-                    return new ResponseDto(400, "Error" , "No se pudo actualizar el Tópico. Verifica que el curso y usuario existan.");
+                    return new ResponseDto(400, "Bad Request" , "No se pudo actualizar el Tópico. Verifica que el curso y usuario existan.");
                 }
             }
-            return new ResponseDto(400, "Error" , "No se pudo actualizar el Tópico. Verifica que el título o mensaje no se repitan.");
+            return new ResponseDto(400, "Bad Request" , "No se pudo actualizar el Tópico. Verifica que el título o mensaje no se repitan.");
         }
 
         throw new TopicoNotFoundException("El topico con ID " + id + " no existe. No se pudo actualizar el Tópico.");
@@ -68,7 +67,7 @@ public class TopicoServiceImpl implements TopicoService {
     public ResponseDto deleteTopicoById(Long id) {
         if (topicoRepository.exist(id)) {
             topicoRepository.deleteTopicoById(id);
-            return new ResponseDto(200, "Exito" , "Tópico eliminado con éxito");
+            return new ResponseDto(200, "Ok" , "Tópico eliminado con éxito");
         }
         else{
             throw new TopicoNotFoundException("El topico con ID " + id + " no existe. No se pudo eliminar el Tópico.");

@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseBody
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
 public class ContraseniaInvalidException extends RuntimeException {
+
     public ContraseniaInvalidException(String message) {
         super(message);
+    }
+
+    @Override
+    public String getMessage() {
+        return super.getMessage();
     }
 }

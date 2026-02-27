@@ -33,7 +33,6 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
     private final PasswordUtil passwordUtil;
 
-
     public ResponseDto createUser(UsuarioAuthRequestDto authRequest) {
         usuarioRepository.saveUsuario(authRequest);
         UsuarioDto usuarioDto = usuarioRepository.getUsuarioByNombre(authRequest.getNombre());
@@ -45,7 +44,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
         String token = jwtUtil.createToken(authentication);
 
-        return new ResponseDto(201, "Exito","Usuario creado exitosamente", token);
+        return new ResponseDto(201, "Created","Usuario creado exitosamente", token);
     }
 
     public ResponseDto login(UsuarioLoginRequestDto loginRequest) {
@@ -58,7 +57,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
 
         String token = jwtUtil.createToken(authentication);
 
-        return new ResponseDto(200, "Exito","Login exitoso", token);
+        return new ResponseDto(200, "Ok","Login exitoso", token);
     }
 
     public Authentication authenticate(String nombre, String contrasenia) {

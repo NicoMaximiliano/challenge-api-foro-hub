@@ -45,4 +45,5 @@ public class TopicoEntity {
         this.usuario = usuario;
         this.curso = curso;
     }
+
 }

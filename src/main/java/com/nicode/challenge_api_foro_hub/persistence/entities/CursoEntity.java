@@ -32,4 +32,5 @@ public class CursoEntity {
         this.nombre = nombre;
         this.categoria = categoria;
     }
+
 }

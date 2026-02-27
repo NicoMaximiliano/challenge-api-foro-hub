@@ -29,4 +29,6 @@ public class TopicoRequestDto {
     @NotNull(message = "El campo curso no puede ser nulo")
     @Valid
     private CursoRequestDto curso;
+
+
 }

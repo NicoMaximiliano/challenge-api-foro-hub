@@ -17,7 +17,6 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 
     private final UsuarioConverter usuarioConverter;
 
-
     @Override
     public UsuarioDto getUsuarioByNombre(String nombre) {
         UsuarioEntity usuarioEntity = usuarioJpaRepository.findByNombre(nombre);

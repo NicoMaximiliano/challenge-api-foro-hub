@@ -17,6 +17,7 @@ import java.util.List;
 public class TopicoConverterImpl implements TopicoConverter {
 
     private final CursoConverter cursoConverter;
+
     private final UsuarioConverter usuarioConverter;
 
     @Override

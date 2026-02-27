@@ -19,7 +19,7 @@ public class TopicoController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllTopicos() {
         if (topicoService.getAllTopicos().isEmpty()){
-            ResponseDto response = new ResponseDto(200, "Exito" , "No se hay topicos registrados en el sistema");
+            ResponseDto response = new ResponseDto(200, "Ok" , "No se hay topicos registrados en el sistema");
             return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
         }
         return ResponseEntity.status(200).body(topicoService.getAllTopicos());

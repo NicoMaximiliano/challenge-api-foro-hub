@@ -25,4 +25,6 @@ public class UsuarioRequestDto {
     @NotBlank(message = "El campo email no puede estar vacio")
     @Email(message = "El campo email debe ser una dirección de correo electrónico válida")
     private String email;
+
+
 }

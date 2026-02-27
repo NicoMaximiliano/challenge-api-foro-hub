@@ -40,4 +40,5 @@ public class UsuarioEntity {
         this.email = email;
         this.contrasenia = contrasenia;
     }
+
 }

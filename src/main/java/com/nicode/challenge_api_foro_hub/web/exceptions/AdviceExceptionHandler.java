@@ -19,7 +19,7 @@ public class AdviceExceptionHandler {
         String mensaje = String.format("El parámetro '%s' tiene un valor inválido: '%s'. Se esperaba un valor de tipo '%s'.",
                 ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName());
 
-        ResponseDto response = new ResponseDto(400, "Error", mensaje);
+        ResponseDto response = new ResponseDto(400, "Bad Request", mensaje);
 
         return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
@@ -34,31 +34,32 @@ public class AdviceExceptionHandler {
         });
 
         if (mensajes.size() == 1){
-            response = new ResponseDto(400, "Error", mensajes.get(0));
+            response = new ResponseDto(400, "Bad Request", mensajes.get(0));
             return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
         }
         else{
-            response = new ResponseDto(400, "Error", mensajes);
+            response = new ResponseDto(400, "Bad Request", mensajes);
             return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
         }
     }
 
     @ExceptionHandler(TopicoNotFoundException.class)
     public ResponseEntity<?> handleTopicoNotFound(TopicoNotFoundException ex){
-        ResponseDto response = new ResponseDto(404, "Error", ex.getMessage());
+        ResponseDto response = new ResponseDto(404, "Not Found", ex.getMessage());
         return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
 
     @ExceptionHandler(ContraseniaInvalidException.class)
     public ResponseEntity<?> handleContraseñaInvalid(ContraseniaInvalidException ex){
-        ResponseDto response = new ResponseDto(401, "Error", ex.getMessage());
+        ResponseDto response = new ResponseDto(401, "Unauthorized", ex.getMessage());
         return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
 
     @ExceptionHandler(NombreUsuarioInvalidException.class)
     public ResponseEntity<?> handleNombreUsuarioInvalid(NombreUsuarioInvalidException ex){
-        ResponseDto response = new ResponseDto(401, "Error", ex.getMessage());
+        ResponseDto response = new ResponseDto(401, "Unauthorized", ex.getMessage());
         return ResponseEntity.status(response.getCodigo()).body(response.showResponse());
     }
+
 
 }

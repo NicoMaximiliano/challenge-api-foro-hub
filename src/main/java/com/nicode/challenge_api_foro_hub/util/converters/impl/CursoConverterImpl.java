@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CursoConverterImpl implements CursoConverter {
+
     @Override
     public CursoEntity toCursoEntity(CursoRequestDto curso) {
         return new CursoEntity(
@@ -15,4 +16,5 @@ public class CursoConverterImpl implements CursoConverter {
                 curso.getCategoria()
         );
     }
+
 }

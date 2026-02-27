@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TopicoResponseDto {
+
     @JsonProperty("Titulo")
     private String titulo;
 
@@ -28,4 +29,6 @@ public class TopicoResponseDto {
 
     @JsonProperty("Nombre del curso")
     private String cursoNombre;
+
+
 }

@@ -18,8 +18,11 @@ import java.util.List;
 public class TopicoRepositoryImpl implements TopicoRepository {
 
     private final TopicoJpaRepository topicoJpaRepository;
+
     private final CursoJpaRepository cursoJpaRepository;
+
     private final UsuarioJpaRepository usuarioJpaRepository;
+
     private final TopicoConverter topicoConverter;
 
     @Override
@@ -63,7 +66,6 @@ public class TopicoRepositoryImpl implements TopicoRepository {
     public void deleteTopicoById(Long id) {
         topicoJpaRepository.deleteById(id);
     }
-
 
     @Override
     public boolean exist(Long id) {

@@ -23,4 +23,6 @@ public class CursoRequestDto {
 
     @NotBlank(message = "El campo categoria no puede estar vacio")
     private String categoria;
+
+
 }

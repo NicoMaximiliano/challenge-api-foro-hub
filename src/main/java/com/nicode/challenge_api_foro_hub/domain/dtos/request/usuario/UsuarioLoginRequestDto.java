@@ -17,4 +17,6 @@ public class UsuarioLoginRequestDto {
 
     @NotBlank(message = "El campo contraseña no puede estar vacio")
     private String contrasenia;
+
+
 }
