@@ -27,6 +27,10 @@ public class SecurityConfig {
 
     private final PasswordUtil passwordUtil;
 
+    // Lista de URLs públicas que usa Swagger/OpenAPI
+    private static final String[] SWAGGER_WHITELIST = { "/v3/api-docs/**", "/v3/api-docs.yaml", "/swagger-ui/**",
+            "/swagger-ui.html", "/webjars/**" };
+
     //CONFIGURA LOS FILTROS DE SEGURIDAD PARA CONTROLAR COMO SE AUTENTICAN Y AUTORIZAN LAS SOLICITUDES
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
@@ -34,6 +38,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(http -> {
+                    http.requestMatchers(SWAGGER_WHITELIST).permitAll();
                     http.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/auth/signup").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/topicos/**").hasRole("USER");
