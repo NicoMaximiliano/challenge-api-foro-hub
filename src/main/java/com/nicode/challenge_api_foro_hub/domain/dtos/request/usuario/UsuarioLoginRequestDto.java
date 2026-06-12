@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "DTO de solicitud para el inicio de sesión de un usuario", name = "Usuario Login Request")
 public class UsuarioLoginRequestDto {
 
     @Schema(description = "Nombre del usuario", example = "John Doe")

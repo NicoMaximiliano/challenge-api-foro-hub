@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "DTO de respuesta para un tópico", name = "Topico Response")
 public class TopicoResponseDto {
 
     @Schema(description = "Título del tópico", example = "¿Cómo aprender Java?")

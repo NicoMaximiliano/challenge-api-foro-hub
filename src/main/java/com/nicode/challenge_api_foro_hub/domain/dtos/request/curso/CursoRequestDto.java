@@ -13,6 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "DTO de solicitud para un curso", name = "Curso Request")
 public class CursoRequestDto {
 
     @Schema(description = "ID del curso", example = "1")

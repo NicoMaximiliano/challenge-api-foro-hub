@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "DTO de solicitud para el registro de un nuevo usuario", name = "Usuario Auth Request")
 public class UsuarioAuthRequestDto {
 
     @Schema(description = "Nombre del usuario", example = "John Doe")
