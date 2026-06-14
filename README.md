@@ -43,7 +43,7 @@ Request:
 ```
 {
 	"nombre": "Nicolas Orellano",
-	"email": "nico.orellano@hotmail.com",
+	"email": "nico@hotmail.com",
 	"contrasenia": "1234"
 }
 ```
@@ -90,7 +90,7 @@ Request:
 	 "usuario": {
 		 "id": 1,
 		 "nombre": "Nicolas Orellano",
-		 "email": "nico.orellano@hotmail.com"
+		 "email": "nico@hotmail.com"
 	 },
 	"curso": {
 		"id": 4,
@@ -156,7 +156,7 @@ Request:
 	 "usuario": {
 		 "id": 1,
 		 "nombre": "Nicolas Orellano",
-		 "email": "nico.orellano@hotmail.com"
+		 "email": "nico@hotmail.com"
 	 },
 	"curso": {
 		"id": 4,
@@ -255,7 +255,6 @@ Response:
 ![Estructura de la Base de Datos](/src/main/resources/img/estructura_bd.jpg)
 
 ## Pasos a seguir
-- Documentar la API usando Swagger
 - Agregar más roles para que haya usuarios con distintos roles
 - Agregar dos entidades más a la base de datos como perfiles y respuestas
 - Agregar un mapeador para la conversion de objetos dtos a entities y viceversa
