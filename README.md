@@ -193,6 +193,8 @@ Response:
             └── 📁filters
                 ├── JwtFilter.java
             ├── SecurityConfig.java
+		└── 📁doc
+			├── OpenApiConfig.java		
     └── 📁domain
         └── 📁dtos
             └── 📁request
