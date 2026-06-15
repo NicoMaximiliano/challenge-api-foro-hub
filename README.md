@@ -253,6 +253,10 @@ Response:
             ├── TopicoNotFoundException.java
     └── ChallengeApiForoHubApplication.java
 ```
+## Documentacion de la API
+##### URL: `http://localhost:8080/foro-hub/api/v1/swagger-ui/index.html#/`
+![Documentacion](/src/main/resources/img/doc_api.jpg)
+
 ## Estructura de la base de datos
 ![Estructura de la Base de Datos](/src/main/resources/img/estructura_bd.jpg)
 
